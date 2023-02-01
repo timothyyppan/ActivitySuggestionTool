@@ -3,6 +3,8 @@ const url = 'https://api.open-meteo.com/v1/forecast?latitude=44.23&longitude=-76
 Http.open("GET", url);
 Http.send();
 
-Http.onreadystatechange = (e) =>{
-    console.log(Http.reponseText)
+Http.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+        console.log(Http.responseText)
+    }
 }
