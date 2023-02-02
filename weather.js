@@ -57,22 +57,22 @@ Http.onreadystatechange = function(){
         console.log(currentWindSpeed)
 
         if(currentTemperature > 30){
-            console.log("Try to stay inside as it is too hot outside")
+            console.log("Try to stay inside as it is too hot outside");
         }
-        else if(currentTemperature >= 25 && currentTemperature <= 30){
-            console.log(hotActivities)
+        else if(currentTemperature > 25 && currentTemperature < 30){
+            console.log(hotActivities);
         }
-        else if(currentTemperature >= 15 && currentTemperature < 25){
-            console.log(warmActivities)
+        else if(currentTemperature > 15 && currentTemperature < 25){
+            console.log(warmActivities);
         }
         else if(currentTemperature >= 5 && currentTemperature < 15){
-            console.log(fairActivities)
+            console.log(fairActivities);
         }
         else if(currentTemperature >= 0 && currentTemperature < 5){
-            console.log(coldActivities)
+            console.log(chillyActivities);
         }
-        else if(currentTemperature >= -15 && chillyActivities < 0){
-            console.log(chillyActivities)
+        else if(currentTemperature >= -15 && currentTemperature < 0){
+            console.log(coldActivities);
         }
         else{
             console.log("Stay inside its too cold outside")
