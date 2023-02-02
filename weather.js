@@ -58,24 +58,40 @@ Http.onreadystatechange = function(){
 
         if(currentTemperature > 30){
             console.log("Try to stay inside as it is too hot outside");
+            document.getElementById("ph").innerHTML = "<div class='hot'\> <span class='sun'></span\> <span class='sunx'></span\> </div>";
+            document.getElementById("ew").innerHTML = "<p>weather is too hot</p>";
         }
-        else if(currentTemperature > 25 && currentTemperature < 30){
+        else if(currentTemperature >= 25 && currentTemperature <= 30){
             console.log(hotActivities);
+            document.getElementById("ph").innerHTML = "<div class='hot'\> <span class='sun'></span\> <span class='sunx'></span\> </div>";
+            document.getElementById("ew").innerHTML = "<p>weather is hot</p>";
         }
-        else if(currentTemperature > 15 && currentTemperature < 25){
+        else if(currentTemperature >= 15 && currentTemperature <= 25){
             console.log(warmActivities);
+            document.getElementById("ph").innerHTML = "<div class='hot'\> <span class='sun'></span\> <span class='sunx'></span\> </div>";
+            document.getElementById("ew").innerHTML = "<p>weather is warm</p>";
+
         }
-        else if(currentTemperature >= 5 && currentTemperature < 15){
+        else if(currentTemperature >= 5 && currentTemperature <= 15){
             console.log(fairActivities);
+            document.getElementById("ph").innerHTML = " <div class='cloudy'\><span class='cloud'\></span\><span class='cloudx'\></span\></div\>";
+            document.getElementById("ew").innerHTML = "<p>weather is fair</p>";
         }
-        else if(currentTemperature >= 0 && currentTemperature < 5){
+        else if(currentTemperature >= 0 && currentTemperature <= 5){
             console.log(chillyActivities);
+            document.getElementById("ph").innerHTML = " <div class='cloudy'\><span class='cloud'\></span\><span class='cloudx'\></span\></div\>";
+            document.getElementById("ew").innerHTML = "<p>weather is chilly</p>";
         }
-        else if(currentTemperature >= -15 && currentTemperature < 0){
+        else if(currentTemperature >= -15 && currentTemperature <= 0){
             console.log(coldActivities);
+            document.getElementById("ph").innerHTML = "<div class='stormy'> <ul> <li></li> <li></li> <li></li> <li></li>  <li></li> <li></li> <li></li> </ul> <span class='snowe'></span> <span class='snowex'></span> <span class='stick'></span> <span class='stick2'></span> </div>";
+            document.getElementById("ew").innerHTML = "<p>weather is cold</p>";
         }
         else{
             console.log("Stay inside its too cold outside")
+            document.getElementById("ph").innerHTML = "<div class='stormy'> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <span class='snowe'></span> <span class='snowex'></span> <span class='stick'></span> <span class='stick2'></span> </div>";
+            document.getElementById("ew").innerHTML = "<p>Stay inside its too cold outside</p>";
+        
         }
     }
 }
