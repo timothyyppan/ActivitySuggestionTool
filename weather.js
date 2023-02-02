@@ -10,7 +10,10 @@ const hotActivities = [
     "Tennis",
     "Volleyball",
     "Cycling",
+    "Rollerblading",
     "Soccer",
+    "Basketball",
+    "Football",
     "Running",
     "Walking",
     "Golf",
@@ -20,19 +23,44 @@ const hotActivities = [
 
 const warmActivities = [
 
+    "Walking",
+    "Running",
+    "Tennis",
+    "Cycling",
+    "Rollerblading",
+    "Soccer",
+    "Basketball",
+    "Football",
+    "Golf",
+
 ]
 
 const fairActivities = [
 
+    "Walking",
+    "Running",
+    "Soccer",
+    "Basketball",
+    "Football"
+    
 ]
 
 const coldActivities = [
 
-    "Snowball Fight"
+    "Walking",
+    "Running"
 
 ]
 
 const chillyActivities = [
+
+    "Snowball Fight",
+    "Skating",
+    "Skiing",
+    "Snowboarding",
+    "Tobogganing",
+    "Building things out of snow",
+    "Walking"
 
 ]
 
@@ -56,26 +84,43 @@ Http.onreadystatechange = function(){
         console.log(currentWindDirection)
         console.log(currentWindSpeed)
 
+
+        for(let i = 0; i < fairActivities.length; i++){
+            console.log(fairActivities[i])
+        }
+
         if(currentTemperature > 30){
             console.log("Try to stay inside as it is too hot outside")
         }
-        else if(currentTemperature >= 25 && currentTemperature <= 30){
-            console.log(hotActivities)
+        if(currentTemperature >= 25 && currentTemperature <= 30){
+            for(let i = 0; i < hotActivities.length; i++){
+                console.log(hotActivities[i]);
+            }
         }
-        else if(currentTemperature >= 15 && currentTemperature < 25){
-            console.log(warmActivities)
+        if(currentTemperature >= 15 && currentTemperature < 25){
+            for(let i = 0; i < warmActivities.length; i++){
+                console.log(warmActivities[i]);
+            }
         }
-        else if(currentTemperature >= 5 && currentTemperature < 15){
-            console.log(fairActivities)
+        if(currentTemperature >= 5 && currentTemperature < 15){
+            for(let i = 0; i < fairActivities.length; i++){
+                console.log(fairActivities[i]);
+            }
         }
-        else if(currentTemperature >= 0 && currentTemperature < 5){
-            console.log(coldActivities)
+        if(currentTemperature >= 0 && currentTemperature < 5){
+            for(let i = 0; i < coldActivities.length; i++){
+                console.log(coldActivities[i]);
+            }
         }
-        else if(currentTemperature >= -15 && chillyActivities < 0){
-            console.log(chillyActivities)
+        if(currentTemperature >= -15 && chillyActivities < 0){
+            for(let i = 0; i < chillyActivities.length; i++){
+                console.log(chillyActivities[i]);
+            }
         }
-        else{
+        
+        if(currentTemperature < -15){
             console.log("Stay inside its too cold outside")
         }
+        
     }
 }
