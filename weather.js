@@ -10,7 +10,10 @@ const hotActivities = [
     "Tennis",
     "Volleyball",
     "Cycling",
+    "Rollerblading",
     "Soccer",
+    "Basketball",
+    "Football",
     "Running",
     "Walking",
     "Golf",
@@ -20,19 +23,44 @@ const hotActivities = [
 
 const warmActivities = [
 
+    "Walking",
+    "Running",
+    "Tennis",
+    "Cycling",
+    "Rollerblading",
+    "Soccer",
+    "Basketball",
+    "Football",
+    "Golf",
+
 ]
 
 const fairActivities = [
 
+    "Walking",
+    "Running",
+    "Soccer",
+    "Basketball",
+    "Football"
+    
 ]
 
 const coldActivities = [
 
-    "Snowball Fight"
+    "Walking",
+    "Running"
 
 ]
 
 const chillyActivities = [
+
+    "Snowball Fight",
+    "Skating",
+    "Skiing",
+    "Snowboarding",
+    "Tobogganing",
+    "Building things out of snow",
+    "Walking"
 
 ]
 
@@ -55,6 +83,11 @@ Http.onreadystatechange = function(){
         console.log(currentTime)
         console.log(currentWindDirection)
         console.log(currentWindSpeed)
+
+
+        for(let i = 0; i < fairActivities.length; i++){
+            console.log(fairActivities[i])
+        }
 
         if(currentTemperature > 30){
             console.log("Try to stay inside as it is too hot outside");
@@ -87,11 +120,13 @@ Http.onreadystatechange = function(){
             document.getElementById("ph").innerHTML = "<div class='stormy'> <ul> <li></li> <li></li> <li></li> <li></li>  <li></li> <li></li> <li></li> </ul> <span class='snowe'></span> <span class='snowex'></span> <span class='stick'></span> <span class='stick2'></span> </div>";
             document.getElementById("ew").innerHTML = "<p>weather is cold</p>";
         }
-        else{
+        
+        if(currentTemperature < -15){
             console.log("Stay inside its too cold outside")
             document.getElementById("ph").innerHTML = "<div class='stormy'> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <span class='snowe'></span> <span class='snowex'></span> <span class='stick'></span> <span class='stick2'></span> </div>";
             document.getElementById("ew").innerHTML = "<p>Stay inside its too cold outside</p>";
         
         }
+        
     }
 }
