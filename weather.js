@@ -90,36 +90,42 @@ Http.onreadystatechange = function(){
         }
 
         if(currentTemperature > 30){
-            console.log("Try to stay inside as it is too hot outside")
+            console.log("Try to stay inside as it is too hot outside");
+            document.getElementById("ph").innerHTML = "<div class='hot'\> <span class='sun'></span\> <span class='sunx'></span\> </div>";
+            document.getElementById("ew").innerHTML = "<p>weather is too hot</p>";
         }
-        if(currentTemperature >= 25 && currentTemperature <= 30){
-            for(let i = 0; i < hotActivities.length; i++){
-                console.log(hotActivities[i]);
-            }
+        else if(currentTemperature >= 25 && currentTemperature <= 30){
+            console.log(hotActivities);
+            document.getElementById("ph").innerHTML = "<div class='hot'\> <span class='sun'></span\> <span class='sunx'></span\> </div>";
+            document.getElementById("ew").innerHTML = "<p>weather is hot</p>";
         }
-        if(currentTemperature >= 15 && currentTemperature < 25){
-            for(let i = 0; i < warmActivities.length; i++){
-                console.log(warmActivities[i]);
-            }
+        else if(currentTemperature >= 15 && currentTemperature <= 25){
+            console.log(warmActivities);
+            document.getElementById("ph").innerHTML = "<div class='hot'\> <span class='sun'></span\> <span class='sunx'></span\> </div>";
+            document.getElementById("ew").innerHTML = "<p>weather is warm</p>";
+
         }
-        if(currentTemperature >= 5 && currentTemperature < 15){
-            for(let i = 0; i < fairActivities.length; i++){
-                console.log(fairActivities[i]);
-            }
+        else if(currentTemperature >= 5 && currentTemperature <= 15){
+            console.log(fairActivities);
+            document.getElementById("ph").innerHTML = " <div class='cloudy'\><span class='cloud'\></span\><span class='cloudx'\></span\></div\>";
+            document.getElementById("ew").innerHTML = "<p>weather is fair</p>";
         }
-        if(currentTemperature >= 0 && currentTemperature < 5){
-            for(let i = 0; i < coldActivities.length; i++){
-                console.log(coldActivities[i]);
-            }
+        else if(currentTemperature >= 0 && currentTemperature <= 5){
+            console.log(chillyActivities);
+            document.getElementById("ph").innerHTML = " <div class='cloudy'\><span class='cloud'\></span\><span class='cloudx'\></span\></div\>";
+            document.getElementById("ew").innerHTML = "<p>weather is chilly</p>";
         }
-        if(currentTemperature >= -15 && chillyActivities < 0){
-            for(let i = 0; i < chillyActivities.length; i++){
-                console.log(chillyActivities[i]);
-            }
+        else if(currentTemperature >= -15 && currentTemperature <= 0){
+            console.log(coldActivities);
+            document.getElementById("ph").innerHTML = "<div class='stormy'> <ul> <li></li> <li></li> <li></li> <li></li>  <li></li> <li></li> <li></li> </ul> <span class='snowe'></span> <span class='snowex'></span> <span class='stick'></span> <span class='stick2'></span> </div>";
+            document.getElementById("ew").innerHTML = "<p>weather is cold</p>";
         }
         
         if(currentTemperature < -15){
             console.log("Stay inside its too cold outside")
+            document.getElementById("ph").innerHTML = "<div class='stormy'> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <span class='snowe'></span> <span class='snowex'></span> <span class='stick'></span> <span class='stick2'></span> </div>";
+            document.getElementById("ew").innerHTML = "<p>Stay inside its too cold outside</p>";
+        
         }
         
     }
