@@ -84,6 +84,8 @@ Http.onreadystatechange = function(){
         console.log(currentWindDirection)
         console.log(currentWindSpeed)
 
+        let str;
+
         if(currentTemperature > 30){
             console.log("Try to stay inside as it is too hot outside");
             document.getElementById("bubbleImage").innerHTML = "<div class='hot'\> <span class='sun'></span\> <span class='sunx'></span\> </div>";
@@ -118,7 +120,8 @@ Http.onreadystatechange = function(){
         else if(currentTemperature >= -15 && currentTemperature <= 0){
             
             for(let i = 0; i < coldActivities.length; i++){
-                document.getElementById("activities").innerHTML = "<p>coldActivities[i]</p>";
+                str = coldActivities[i];
+                document.getElementById("activities").innerHTML += str;
             }
             
             console.log(coldActivities);
