@@ -81,7 +81,7 @@ HttpWeather.onreadystatechange = function(){
 
         console.log(betterWeather)
         document.getElementById("currentTemp").innerHTML = currentTemperature;
-        document.getElementById("windSpeed").innerHTML = currentWindSpeed;
+        document.getElementById("windSpeed").innerHTML = currentWindSpeed + "km\/s";
         document.getElementById("windDirection").innerHTML = currentWindDirection;
         document.getElementById("currentDate").innerHTML = currentDate
         document.getElementById("currentTime").innerHTML = currentTime
