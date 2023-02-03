@@ -73,21 +73,20 @@ HttpWeather.onreadystatechange = function(){
         var latitude = betterWeather.latitude
         var longitude = betterWeather.longitude
         var currentTemperature = betterWeather.current_weather.temperature
-        var currentTime = betterWeather.current_weather.time
-        var currentHour = parseInt(currentTime.substring(11, 13))
+        var currentDate = betterWeather.current_weather.time.substring(0, 10)
+        var currentTime = betterWeather.current_weather.time.substring(11, 16)
         var currentWindSpeed = betterWeather.current_weather.windspeed
-        //var currentWeatherCode = betterWeather.current_weather.weathercode
-        var currentWeatherCode = 0
+        var currentWindDirection = betterWeather.current_weather.winddirection
+        var currentWeatherCode = betterWeather.current_weather.weathercode
 
-        console.log(betterWeather);
-        console.log(currentHour);
-        console.log(typeof currentHour)
-
+        console.log(betterWeather)
         document.getElementById("currentTemp").innerHTML = currentTemperature;
         document.getElementById("windSpeed").innerHTML = currentWindSpeed;
-
+        document.getElementById("windDirection").innerHTML = currentWindDirection;
+        document.getElementById("currentDate").innerHTML = currentDate
+        document.getElementById("currentTime").innerHTML = currentTime
+        
         if(currentTemperature > 30){
-            //document.getElementById("bubbleImage").innerHTML = "<div class='hot'\> <span class='sun'></span\> <span class='sunx'></span\> </div>";
             document.getElementById("activities").innerHTML = "<p>It is too hot outside</p>";
         }
         else if(currentTemperature >= 25 && currentTemperature <= 30){
@@ -95,92 +94,74 @@ HttpWeather.onreadystatechange = function(){
                 str = hotActivities[i] + " "
                 document.getElementById("activities").innerHTML += str
             }
-            //document.getElementById("bubbleImage").innerHTML = "<div class='hot'\> <span class='sun'></span\> <span class='sunx'></span\> </div>";
         }
         else if(currentTemperature >= 15 && currentTemperature <= 25){
             for(let i = 0; i < warmActivities.length; i++){
                 str = warmActivities[i] + " "
                 document.getElementById("activities").innerHTML += str
             }
-            //document.getElementById("bubbleImage").innerHTML = "<div class='hot'\> <span class='sun'></span\> <span class='sunx'></span\> </div>";
-            document.getElementById("weatherStatement").innerHTML = "<p>It is warm outside</p>";
-
         }
         else if(currentTemperature >= 5 && currentTemperature <= 15){
             for(let i = 0; i < fairActivities.length; i++){
                 str = fairActivities[i] + " "
                 document.getElementById("activities").innerHTML += str
             }
-            //document.getElementById("bubbleImage").innerHTML = " <div class='cloudy'\><span class='cloud'\></span\><span class='cloudx'\></span\></div\>";
-            document.getElementById("weatherStatement").innerHTML = "<p>It is fair outside</p>";
         }
         else if(currentTemperature >= 0 && currentTemperature <= 5){
             for(let i = 0; i < coldActivities.length; i++){
                 str = coldActivities[i] + " "
                 document.getElementById("activities").innerHTML += str
             }
-            //document.getElementById("bubbleImage").innerHTML = " <div class='cloudy'\><span class='cloud'\></span\><span class='cloudx'\></span\></div\>";
-            document.getElementById("weatherStatement").innerHTML = "<p>It is cold outside</p>";
         }
         else if(currentTemperature >= -15 && currentTemperature <= 0){
             for(let i = 0; i < chillyActivities.length; i++){
-                str = chillyActivities[i] + " "
+                str = chillyActivities[i] + "      "
                 document.getElementById("activities").innerHTML += str
             }
-            //document.getElementById("bubbleImage").innerHTML = "<div class='stormy'> <ul> <li></li> <li></li> <li></li> <li></li>  <li></li> <li></li> <li></li> </ul> <span class='snowe'></span> <span class='snowex'></span> <span class='stick'></span> <span class='stick2'></span> </div>";
-            document.getElementById("weatherStatement").innerHTML = "<p>It is chilly outside</p>";
         }
         
         if(currentTemperature < -15){
-            //document.getElementById("bubbleImage").innerHTML = "<div class='stormy'> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <span class='snowe'></span> <span class='snowex'></span> <span class='stick'></span> <span class='stick2'></span> </div>";
             document.getElementById("activities").innerHTML = "<p>It is too cold outside</p>";
-        
         }
 
         if(currentWeatherCode == 0){
-            document.getElementById("weatherStatement").innerHTML = "<p>The sky is clear</p>";
-            if(currentHour >= 18 && currentHour <= 6){
-                
-            }
-            else if (currentHour > 6 && currentHour < 18){
-                
-            }
+            document.getElementById("weatherStatement").innerHTML = "<p>Clear Skies</p>";
         }
         else if(currentWeatherCode <= 3 && currentWeatherCode >= 1){
-            document.getElementById("weatherStatement").innerHTML = "<p>The sky is partly cloudy</p>";
+            document.getElementById("weatherStatement").innerHTML = "<p>Partly Cloudy</p>";
         }
         else if(currentWeatherCode == 45 || currentWeatherCode == 48){
-            document.getElementById("weatherStatement").innerHTML = "<p>It is foggy</p>";
+            document.getElementById("weatherStatement").innerHTML = "<p>Foggy</p>";
         }
         else if(currentWeatherCode == 51 || currentWeatherCode == 53 || currentWeatherCode == 55){
-            document.getElementById("weatherStatement").innerHTML = "<p>There is a drizzle</p>";
+            document.getElementById("weatherStatement").innerHTML = "<p>Drizzle</p>";
         }
         else if(currentWeatherCode == 56 || currentWeatherCode == 57){
-            document.getElementById("weatherStatement").innerHTML = "<p>There is a freezing drizzle</p>";
+            document.getElementById("weatherStatement").innerHTML = "<p>Freezing Drizzle</p>";
         }
         else if(currentWeatherCode == 61 || currentWeatherCode == 63 || currentWeatherCode == 65){
-            document.getElementById("weatherStatement").innerHTML = "<p>It is raining</p>";
+            document.getElementById("weatherStatement").innerHTML = "<p>Rain</p>";
         }
         else if(currentWeatherCode == 66 || currentWeatherCode == 67){
-            document.getElementById("weatherStatement").innerHTML = "<p>There is freezing rain</p>";
+            document.getElementById("weatherStatement").innerHTML = "<p>Freezing Rain</p>";
         }
         else if(currentWeatherCode == 71 || currentWeatherCode == 73 || currentWeatherCode == 75){
-            document.getElementById("weatherStatement").innerHTML = "<p>It is snowing</p>";
+            document.getElementById("weatherStatement").innerHTML = "<p>Snow</p>";
         }
         else if(currentWeatherCode == 77){
-            document.getElementById("weatherStatement").innerHTML = "<p>There are snow grains</p>";
+            document.getElementById("weatherStatement").innerHTML = "<p>Snow Grains</p>";
         }
         else if(currentWeatherCode <= 82 && currentWeatherCode >= 80){
-            document.getElementById("weatherStatement").innerHTML = "<p>There are rain showers</p>";
+            document.getElementById("weatherStatement").innerHTML = "<p>Rain Showers</p>";
         }
         else if(currentWeatherCode == 85 || currentWeatherCode == 86){
-            document.getElementById("weatherStatement").innerHTML = "<p>There are snow showers</p>";
+            document.getElementById("weatherStatement").innerHTML = "<p>Snow Showers</p>";
         }
         else if(currentWeatherCode == 95){
-            document.getElementById("weatherStatement").innerHTML = "<p>It is thunderstorming</p>";
+            document.getElementById("weatherStatement").innerHTML = "<p>Thunderstorms</p>";
         }
         else if(currentWeatherCode == 96 || currentWeatherCode == 99){
-            document.getElementById("weatherStatement").innerHTML = "<p>It is thunderstorming with hail</p>";
+            document.getElementById("weatherStatement").innerHTML = "<p>Hailing Thunderstorming </p>";
         }
         
     }
