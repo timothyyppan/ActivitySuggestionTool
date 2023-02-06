@@ -8,8 +8,10 @@ HttpWeather.onreadystatechange = function(){
 
         var weather = HttpWeather.responseText
         var betterWeather = JSON.parse(weather)
-        var latitude = betterWeather.latitude
-        var longitude = betterWeather.longitude
+        //var latitude = betterWeather.latitude
+        //var longitude = betterWeather.longitude
+        var latitude = 43.6532
+        var longitude = 79.3832
         var currentTemperature = betterWeather.current_weather.temperature
         var currentDate = betterWeather.current_weather.time.substring(0, 10)
         var currentTime = betterWeather.current_weather.time.substring(11, 16)
