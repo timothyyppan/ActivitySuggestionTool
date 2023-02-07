@@ -1,1 +1,1 @@
-# activities-for-weather
+# activity-suggestion-tool
